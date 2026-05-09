@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub Profile Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+    <h1 class="heading">GitHub Profile Viewer</h1>
+    <p class="subheading">Search any GitHub username</p>
+
+    <div class="card">
+
+      <!-- search -->
+      <div class="search-box">
+        <input type="text" id="usernameInput"
+          placeholder="Enter GitHub username..."
+          onkeydown="if(event.key==='Enter') searchUser()" />
+        <button class="search-btn" onclick="searchUser()">Search</button>
+      </div>
+
+      <!-- loader -->
+      <div class="loader" id="loader" style="display:none">
+        <div class="spinner"></div>
+        <p>Loading profile...</p>
+      </div>
+
+      <!-- error -->
+      <div class="error-box" id="errorBox" style="display:none">
+        <p id="errorMsg">User not found!</p>
+      </div>
+
+      <!-- profile -->
+      <div class="profile" id="profile" style="display:none">
+
+        <!-- header -->
+        <div class="profile-header">
+          <img class="avatar" id="avatar" src="" alt="avatar" />
+          <div class="profile-info">
+            <h2 class="profile-name" id="profileName">-</h2>
+            <p class="profile-login" id="profileLogin">-</p>
+            <p class="profile-bio" id="profileBio"></p>
+          </div>
+        </div>
+
+        <!-- meta -->
+        <div class="meta-row">
+          <span class="meta-item" id="profileLocation"></span>
+          <span class="meta-item" id="profileBlog"></span>
+          <span class="meta-item" id="profileJoined"></span>
+        </div>
+
+        <!-- stats -->
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-num" id="repoCount">0</span>
+            <span class="stat-label">Repos</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" id="followerCount">0</span>
+            <span class="stat-label">Followers</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" id="followingCount">0</span>
+            <span class="stat-label">Following</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" id="gistCount">0</span>
+            <span class="stat-label">Gists</span>
+          </div>
+        </div>
+
+        <!-- repos -->
+        <div class="repos-section">
+          <p class="repos-title">Top Repositories</p>
+          <div class="repos-list" id="reposList"></div>
+        </div>
+
+        <!-- view profile -->
+        <a class="view-btn" id="viewBtn" href="#" target="_blank">
+          View on GitHub →
+        </a>
+
+      </div>
+
+      <!-- default -->
+      <div class="default-state" id="defaultState">
+        <div class="default-icon">👨‍💻</div>
+        <p>Search a GitHub username to see their profile</p>
+        <div class="quick-searches">
+          <button onclick="quickSearch('torvalds')">torvalds</button>
+          <button onclick="quickSearch('gaearon')">gaearon</button>
+          <button onclick="quickSearch('anmisha-dash')">anmisha-dash</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
