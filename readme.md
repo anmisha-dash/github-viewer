@@ -4,7 +4,7 @@ Search any GitHub username and see their profile, stats and top repos.
 
 ## Preview
 ![GitHub Viewer](homepage.png)
-![GitHub Viewer](og.png)
+![GitHub Viewer](og.jpeg)
 
 ## Features
 - Search any GitHub username
